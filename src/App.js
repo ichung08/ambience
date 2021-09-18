@@ -11,17 +11,17 @@ import FrontPage from "./Components/FrontPage";
 */
 
 function App() {
-	const [Mood, setMood] = useState("neutral");
+  const [Mood, setMood] = useState(null);
 
-	const moodHandler = (mood) => {
-		setMood(mood);
-	};
+  const moodHandler = (mood) => {
+    setMood(mood);
+  };
 
-	return Mood ? (
-		<MoodPage mood={Mood} moodHandler={moodHandler} />
-	) : (
-		<FrontPage mood={Mood} moodHandler={moodHandler} />
-	);
+  return Mood ? (
+    <MoodPage mood={Mood} moodHandler={moodHandler} />
+  ) : (
+    <FrontPage mood={Mood} moodHandler={moodHandler} />
+  );
 }
 
 export default App;
