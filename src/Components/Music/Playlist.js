@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useTransition, animated } from "react-spring";
 
 import Song from "./Song";
@@ -29,6 +28,71 @@ function Playlist({ mood }) {
     ],
 
     neutral: [
+      {
+        artist: "Drake",
+        name: "Headlines",
+        playtime: "2 minutes 30 seconds",
+      },
+      {
+        artist: "Taylor Swift",
+        name: "Bomboclaat tings",
+        playtime: "3 minutes",
+      },
+    ],
+
+    sad: [
+      {
+        artist: "Drake",
+        name: "Headlines",
+        playtime: "2 minutes 30 seconds",
+      },
+      {
+        artist: "Taylor Swift",
+        name: "Bomboclaat tings",
+        playtime: "3 minutes",
+      },
+    ],
+
+    surprised: [
+      {
+        artist: "Drake",
+        name: "Headlines",
+        playtime: "2 minutes 30 seconds",
+      },
+      {
+        artist: "Taylor Swift",
+        name: "Bomboclaat tings",
+        playtime: "3 minutes",
+      },
+    ],
+
+    disgusted: [
+      {
+        artist: "Drake",
+        name: "Headlines",
+        playtime: "2 minutes 30 seconds",
+      },
+      {
+        artist: "Taylor Swift",
+        name: "Bomboclaat tings",
+        playtime: "3 minutes",
+      },
+    ],
+
+    fearful: [
+      {
+        artist: "Drake",
+        name: "Headlines",
+        playtime: "2 minutes 30 seconds",
+      },
+      {
+        artist: "Taylor Swift",
+        name: "Bomboclaat tings",
+        playtime: "3 minutes",
+      },
+    ],
+
+    angry: [
       {
         artist: "Drake",
         name: "Headlines",

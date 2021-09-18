@@ -17,7 +17,7 @@ function MoodPage({ mood, moodHandler }) {
           ambience
         </h1>
         <p className="subtitle" data-aos="fade-in" data-aos-duration="600" data-aos-delay="1200">
-          We've detected that you are <h4>{mood[0].expressions.neutral}</h4>
+          We've detected that you are <h4>{mood}</h4>
         </p>
       </div>
       <Playlist mood={mood} />
