@@ -42,30 +42,7 @@ function Playlist({ mood }) {
 		],
 	};
 
-	return (
-		<div className="playlist">
-			<p>
-				{playlists[mood].map((song) => (
-					<Song song={song} className="song" />
-				))}
-			</p>
-			{transitions(
-				(styles, item) =>
-					item && (
-						<animated.div style={styles} className="song">
-							<Song
-								song={{
-									artist: "Drake",
-									name: "Headlines",
-									playtime: "2 minutes 30 seconds",
-								}}
-							/>
-						</animated.div>
-					)
-			)}
-			<button onClick={() => setShowSongs(!showSongs)}>Show/Hide</button>
-		</div>
-	);
+	return <div className="playlist"></div>;
 }
 
 export default Playlist;
