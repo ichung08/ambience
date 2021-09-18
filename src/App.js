@@ -11,7 +11,7 @@ import Header from "./Components/Header";
 */
 
 function App() {
-	const [Mood, setMood] = useState("neutral");
+	const [Mood, setMood] = useState(null);
 
 	const moodHandler = (mood) => {
 		setMood(mood);
