@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Playlist from "./Components/Playlist";
-import Video from './Components/Video';
+import Video from "./Components/Video";
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -9,20 +9,39 @@ import Video from './Components/Video';
 */
 
 function App() {
-  const [Init, setInit] = useState(false); //Default until app received a Mood
-  const [Mood, setMood] = useState("neutral");
+	const [Mood, setMood] = useState(null);
+	const [transition, setTransition] = useState(true);
 
-  return (
-    <div className="main-container">
-      <header>
-        <h1 className="header">Ambience</h1>
-      </header>
+	//const animation = () => {};
 
-      <Video />
+	useEffect(() => {
+		if (Mood != null) {
+			setTransition(true);
+		}
 
-      <Playlist Mood={Mood} setMood={setMood} />
-    </div>
-  );
+		//Play transition
+	}, [Mood]);
+
+	//Once a mood is received, we will return the playlist
+
+	if (!transition) {
+		return (
+			<div className="main-container-init">
+				<h1 className="init-header">Ambience</h1>
+				<p className="subtitle">
+					Take a selfie with your webcam below, and we'll replicate your vibes
+					&#128513;
+				</p>
+				<p className="video">Format video here</p>
+			</div>
+		);
+	}
+	return (
+		<div className="main-container-mood">
+			<h1 className="mood-header">Ambience</h1>
+			<p className="subtitle">You are {Mood}</p>
+		</div>
+	);
 }
 
 export default App;
