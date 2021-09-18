@@ -3,17 +3,11 @@ import * as faceapi from "face-api.js";
 import "../Styles/video.css";
 import "../Styles/index.css";
 
-<<<<<<< HEAD
-const Video = ({ mood, moodHandler }) => {
+const Video = ({ moodHandler }) => {
 	// dimensions
 	const height = 480;
 	const width = 640;
-=======
-const Video = ({ moodHandler }) => {
->>>>>>> 3ee4e4e5d054edea637151edb74085b4b3a7f179
 
-	// hooks
-	const [initializing, setInitializing] = useState(false);
 	// const [photo, setPhoto] = useState(false);
 	const video = useRef();
 	const canvas = useRef();
@@ -22,7 +16,6 @@ const Video = ({ moodHandler }) => {
 	useEffect(() => {
 		const loadModels = async () => {
 			const MODEL_URL = process.env.PUBLIC_URL + "/models";
-			setInitializing(true);
 			Promise.all([
 				faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
 				faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
@@ -46,7 +39,6 @@ const Video = ({ moodHandler }) => {
 	// once video starts, run api periodically for face and expression recognition
 	const handleVideoOnPlay = () => {
 		const id = setInterval(async () => {
-			setInitializing(true);
 			canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
 			const displaySize = {
 				width: width,
