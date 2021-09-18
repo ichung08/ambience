@@ -79,7 +79,7 @@ body {
 	height: 100vh;
 }
 
-.mood-header {
+.header-mood {
 	grid-row: 2;
 	grid-column: 1;
 	font-family: "Playfair Display", serif;

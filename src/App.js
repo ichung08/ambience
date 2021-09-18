@@ -11,7 +11,7 @@ import MoodPage from "./Components/MoodPage";
 
 function App() {
 	const [Mood, setMood] = useState(null);
-	const [receivedMood, setReceivedMood] = useState(false);
+	const [receivedMood, setReceivedMood] = useState(true);
 
 	useEffect(() => {}, [Mood]);
 
