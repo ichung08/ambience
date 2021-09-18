@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import * as faceapi from "face-api.js";
 import '../Styles/video.css';
 
-const Video = ({ mood, moodHandler }) => {
+const Video = ({ moodHandler }) => {
 
   // dimensions
   const height = 480;
@@ -37,6 +37,18 @@ const Video = ({ mood, moodHandler }) => {
     )
   }
 
+  const findHighest = (expressions) => {
+    var max = Number.MIN_SAFE_INTEGER;
+    var expression;
+    for (var key of Object.keys(expressions)) {
+      if (expressions[key] > max) {
+        max = expressions[key];
+        expression = key;
+      }
+    }
+    return expression;
+  }
+
   // once video starts, run api periodically for face and expression recognition
   const handleVideoOnPlay = () => {
     const id = setInterval(async () => { 
@@ -57,7 +69,8 @@ const Video = ({ mood, moodHandler }) => {
       console.log(detections);
       if (detections.length > 0) {
         clearInterval(id);
-        moodHandler(detections);
+        console.log(findHighest(detections[0].expressions));
+        moodHandler(findHighest(detections[0].expressions));
       }
     }, 5000)
   } 

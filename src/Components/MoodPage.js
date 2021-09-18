@@ -24,7 +24,7 @@ function MoodPage({ mood, moodHandler }) {
 					data-aos-duration="600"
 					data-aos-delay="1200"
 				>
-					We've detected that you are {mood[0].expressions.neutral}
+					We've detected that you are {mood}
 				</p>
 				<button onClick={() => resetMood()}>Reset Mood</button>
 			</div>
