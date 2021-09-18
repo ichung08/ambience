@@ -1,13 +1,21 @@
-import React from 'react';
-import Video from './Components/Video';
+import React, { useState } from "react";
 
-const App = () => {
-  return (
-    <>
-    <Video />
-    </>
-  )
+import MoodPage from "./Components/MoodPage";
+import FrontPage from "./Components/FrontPage";
+
+import Video from "./Components/Video";
+import Playlist from "./Components/Playlist";
+/*
+  Song component -> possible spotify embed for fixed playlists
+  Playlist -> Takes in mood and returns associated playlist
+  Theme -> Takes in mood and outputs animated gradient
+*/
+
+function App() {
+	const [Mood, setMood] = useState(null);
+	const [receivedMood, setReceivedMood] = useState(true);
+
+	return receivedMood ? <MoodPage Mood={Mood} /> : <FrontPage />;
 }
-
 
 export default App;
