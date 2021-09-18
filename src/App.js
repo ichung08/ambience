@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Playlist from "./Components/Playlist";
+import Video from './Components/Video';
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -16,6 +17,8 @@ function App() {
       <header>
         <h1 className="header">Ambience</h1>
       </header>
+
+      <Video />
 
       <Playlist Mood={Mood} setMood={setMood} />
     </div>
