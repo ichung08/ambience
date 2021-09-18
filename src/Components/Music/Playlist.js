@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTransition, animated } from "react-spring";
+import AudioPlayer from "./AudioPlayer";
 
 import Song from "./Song";
 //Maps songs from playlist, or embeds a spotify playlist
@@ -13,16 +14,16 @@ function Playlist({ mood }) {
     delay: 200,
   });
 
-  const playlists = {
+  const playlist = {
     happy: [
       {
         artist: "Drake",
-        name: "Knife talk",
+        title: "Knife talk",
         playtime: "4 minutes",
       },
       {
         artist: "Taylor Swift",
-        name: "Wildest Dreams",
+        title: "Wildest Dreams",
         playtime: "3 minutes",
       },
     ],
@@ -30,12 +31,12 @@ function Playlist({ mood }) {
     neutral: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -43,12 +44,12 @@ function Playlist({ mood }) {
     sad: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -56,12 +57,12 @@ function Playlist({ mood }) {
     surprised: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -69,12 +70,12 @@ function Playlist({ mood }) {
     disgusted: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -82,12 +83,12 @@ function Playlist({ mood }) {
     fearful: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -95,12 +96,12 @@ function Playlist({ mood }) {
     angry: [
       {
         artist: "Drake",
-        name: "Headlines",
+        title: "Headlines",
         playtime: "2 minutes 30 seconds",
       },
       {
         artist: "Taylor Swift",
-        name: "Bomboclaat tings",
+        title: "Bomboclaat tings",
         playtime: "3 minutes",
       },
     ],
@@ -108,26 +109,27 @@ function Playlist({ mood }) {
 
   return (
     <div className="playlist">
-      <p>
-        {playlists[mood].map((song) => (
+      {/* <AudioPlayer playlist={playlist} mood={mood} /> */}
+      {/* <p>
+        {playlist[mood].map((song) => (
           <Song song={song} className="song" />
         ))}
       </p>
       {transitions(
-        (styles, item) =>
+        (styles, item) => 
           item && (
             <animated.div style={styles} className="song">
               <Song
                 song={{
                   artist: "Drake",
-                  name: "Headlines",
+                  title: "Headlines",
                   playtime: "2 minutes 30 seconds",
                 }}
               />
             </animated.div>
           )
       )}
-      <button onClick={() => setShowSongs(!showSongs)}>Show/Hide</button>
+      <button onClick={() => setShowSongs(!showSongs)}>Show/Hide</button> */}
     </div>
   );
 }
