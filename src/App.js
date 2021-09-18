@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+
+import MoodPage from "./Components/MoodPage";
+import FrontPage from "./Components/FrontPage";
+
 import Video from "./Components/Video";
 import Playlist from "./Components/Playlist";
 import Video from "./Components/Video";
@@ -9,20 +13,10 @@ import Video from "./Components/Video";
 */
 
 function App() {
-  const [Init, setInit] = useState(false); //Default until app received a Mood
-  const [Mood, setMood] = useState("neutral");
+	const [Mood, setMood] = useState(null);
+	const [receivedMood, setReceivedMood] = useState(true);
 
-  return (
-    <div className="main-container">
-      <header>
-        <h1 className="header">Ambience</h1>
-      </header>
-
-      <Video />
-
-      <Playlist Mood={Mood} setMood={setMood} />
-    </div>
-  );
+	return receivedMood ? <MoodPage Mood={Mood} /> : <FrontPage />;
 }
 
 export default App;

@@ -18,6 +18,15 @@ body {
   grid-template-rows: 1fr 5fr;
 }
 
+<<<<<<< HEAD
+.header-mood {
+	grid-row: 2;
+	grid-column: 1;
+	font-family: "Playfair Display", serif;
+	font-weight: 600;
+	font-style: italic;
+	font-size: 2rem;
+=======
 .header {
   text-align: center;
   padding-top: 1em;
@@ -25,4 +34,5 @@ body {
   font-weight: 600;
   font-style: italic;
   font-size: 3rem;
+>>>>>>> f139f52385d6662d956c3a2944b07468f14e96dc
 }
