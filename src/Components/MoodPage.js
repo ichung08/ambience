@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 import { useTransition } from "react-spring";
 
-function MoodPage({ Mood }) {
-	const [visible, setVisible] = useState(false);
+function MoodPage({ mood, moodHandler }) {
+
+	const resetMood = () => {
+		moodHandler(null);
+	}
+
 	return (
 		<div className="item">
 			<div className="main-container-mood">
@@ -20,8 +24,9 @@ function MoodPage({ Mood }) {
 					data-aos-duration="600"
 					data-aos-delay="1200"
 				>
-					We've detected that you are {Mood}
+					We've detected that you are {mood[0].expressions.neutral}
 				</p>
+				<button onClick={() => resetMood()}>Reset Mood</button>
 			</div>
 		</div>
 	);

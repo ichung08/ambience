@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import Video from "./Video";
 import "../Styles/index.css";
 
 import { useTransition, animated } from "@react-spring/core";
@@ -11,7 +12,7 @@ import { useTransition, animated } from "@react-spring/core";
 	</p>
 </div>;
 
-function FrontPage() {
+function FrontPage({ mood, moodHandler }) {
 	/*
 	const [visible, setVisible] = useState(false);
 	const transition = useTransition(visible, {
@@ -32,9 +33,11 @@ function FrontPage() {
 					Take a selfie using your webcam below, and we'll match your mood with
 					a song &#128513;
 				</p>
+				<Video mood={mood} moodHandler={moodHandler} />
 			</div>
 		</div>
 	);
-}
+	}
+
 
 export default FrontPage;
