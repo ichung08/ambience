@@ -1,38 +1,29 @@
 import React, { useState, useEffect } from "react";
-
-//Maps songs from playlist, or embeds a spotify playlist
+//Maps songs from playlist
 
 function Playlist({ Mood }) {
   const [playlist, setPlaylist] = useState({
-    happy: (
-      <iframe
-        title="happy playlist"
-        src="https://open.spotify.com/embed/playlist/5x4vTYH7dIZ2A4tviBajlk"
-        width="100%"
-        height="380"
-        frameBorder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
-      ></iframe>
-    ),
     neutral: (
       <iframe
-        title="neutral playlist"
-        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdIpacQDPDV5"
-        width="100%"
-        height="380"
-        frameBorder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
+        width="560"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/62d2QvWAVt4?autoplay=1&amp;playlist=62d2QvWAVt4&amp;modestbranding=1&amp;loop=1&amp;iv_load_policy=3&amp;rel=0&amp;showinfo=0&amp;"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer"
+        allowfullscreen=""
       ></iframe>
     ),
   });
 
   return (
     <div>
-      <h3>This is a h3</h3>
-      <h4>Your mood is: {Mood} </h4>
-      <p>This is a paragraph tag</p>?
+      <br />
+      <br />
+      <p>
+        <b>Your mood is:</b> {Mood}
+      </p>
+      {/* {playlist[Mood]} */}
     </div>
   );
 }
