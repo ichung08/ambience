@@ -12,7 +12,7 @@ import Playlist from "./Components/Playlist";
 */
 
 function App() {
-	const [Mood, setMood] = useState(null);
+	const [Mood, setMood] = useState("sad");
 	const [receivedMood, setReceivedMood] = useState(true);
 
 	return receivedMood ? <MoodPage Mood={Mood} /> : <FrontPage />;
