@@ -36,6 +36,13 @@ p {
 	font-size: 2rem;
 }
 
+.reset-btn {
+	grid-row: 1;
+	grid-column: 1;
+}
+
+.journal {
+}
 .subtitle {
 	grid-row: 2;
 	grid-column: 2;

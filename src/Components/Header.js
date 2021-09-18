@@ -4,7 +4,7 @@ import { useSpring, animated, config } from "react-spring";
 
 import "../Styles/index.css";
 
-function Header({ mood }) {
+function Header({ moodHandler }) {
 	const styles = useSpring({
 		loop: true,
 		to: [
@@ -21,12 +21,21 @@ function Header({ mood }) {
 		config: config.molasses,
 	});
 
+	const resetMood = () => {
+		moodHandler(null);
+	};
+
 	return (
-		<header className="header">
-			<animated.div style={styles}>
-				<h1>ambience</h1>
-			</animated.div>
-		</header>
+		<>
+			<button className="reset-btn" onClick={() => resetMood()}>
+				Reset Mood
+			</button>
+			<header className="header">
+				<animated.div style={styles}>
+					<h1>ambience</h1>
+				</animated.div>
+			</header>
+		</>
 	);
 	/*
 		<>

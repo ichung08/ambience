@@ -11,7 +11,7 @@ import Header from "./Components/Header";
 */
 
 function App() {
-	const [Mood, setMood] = useState(null);
+	const [Mood, setMood] = useState("neutral");
 
 	const moodHandler = (mood) => {
 		setMood(mood);
@@ -28,7 +28,7 @@ function App() {
 	return (
 		<div>
 			<div className="main-container">
-				<Header />
+				<Header moodHandler={setMood} />
 				{setPage()}
 			</div>
 		</div>
