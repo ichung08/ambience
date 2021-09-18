@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import * as faceapi from "face-api.js";
 import '../Styles/video.css';
 
-const Video = () => {
+const Video = ({ mood, moodHandler }) => {
 
   // dimensions
   const height = 480;
@@ -10,7 +10,7 @@ const Video = () => {
 
   // hooks
   const [initializing, setInitializing] = useState(false);
-  const [photo, setPhoto] = useState(false);
+  // const [photo, setPhoto] = useState(false);
   const video = useRef();
   const canvas = useRef();
 
@@ -19,12 +19,12 @@ const Video = () => {
     const loadModels = async () => {
       const MODEL_URL = process.env.PUBLIC_URL + '/models';
       setInitializing(true);
-       console.log(Promise.all([
+       Promise.all([
         faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
         faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
         faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
         faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
-      ]).then(startVideo));
+      ]).then(startVideo);
     }
     loadModels();
   }, [])
@@ -38,12 +38,9 @@ const Video = () => {
   }
 
   // once video starts, run api periodically for face and expression recognition
-  /*
   const handleVideoOnPlay = () => {
-    setInterval(async () => {
-      if (initializing) {
-        setInitializing(false);
-      }
+    const id = setInterval(async () => { 
+      setInitializing(true);
       canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
       const displaySize = {
         width: width,
@@ -53,12 +50,18 @@ const Video = () => {
       const detections = await faceapi.detectAllFaces(video.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
       const resizedDimensions = faceapi.resizeResults(detections, displaySize);
       canvas.current.getContext('2d').clearRect(0, 0, width, height);
+      
       faceapi.draw.drawDetections(canvas.current, resizedDimensions);
       faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
-      faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions);
+      faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions); 
+      console.log(detections);
+      if (detections.length > 0) {
+        clearInterval(id);
+        moodHandler(detections);
+      }
     }, 5000)
-  } */
-  
+  } 
+  /*
   const handleVideoOnPlay = async () => {
       const id = setInterval(() => {
         if (initializing) {
@@ -78,7 +81,7 @@ const Video = () => {
     canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
     canvas.current.getContext('2d').drawImage(video.current, 0, 0, width, height); 
     setPhoto(true);
-  }
+  } 
 
   const checkPhoto = async () => {
       if (photo) {
@@ -87,7 +90,7 @@ const Video = () => {
       }
   }
 
-  checkPhoto();
+  checkPhoto(); */
 
   return (
     <div>
@@ -97,7 +100,6 @@ const Video = () => {
       <video className="video" ref={video} autoPlay muted height={height} width={width} onPlay={handleVideoOnPlay}/>
       <canvas ref={canvas} className="position-absolute photo"/>
       </flex>
-      <button onClick={takePhoto} className="photo_button">Take photo</button>
       </div>
     </div>
   );
