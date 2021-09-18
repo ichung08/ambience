@@ -20,9 +20,7 @@ function MoodPage({ mood, moodHandler }) {
           We've detected that you are <h4>{mood[0].expressions.neutral}</h4>
         </p>
       </div>
-
       <Playlist mood={mood} />
-
       <button onClick={() => resetMood()}>Reset Mood</button>
     </div>
   );
