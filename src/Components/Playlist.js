@@ -32,7 +32,7 @@ function Playlist({ Mood }) {
     <div>
       <h3>This is a h3</h3>
       <h4>Your mood is: {Mood} </h4>
-      <p>This is a paragraph tag</p>
+      <p>This is a paragraph tag</p>?
     </div>
   );
 }
