@@ -17,8 +17,8 @@
     justify-content: center;
 }
 
-.photo {
-    padding-left: 4em;
+.hidden {
+    display: none;
 }
 
 .photo_button {

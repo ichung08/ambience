@@ -60,12 +60,6 @@ const Video = ({ moodHandler }) => {
       }
       faceapi.matchDimensions(canvas.current, displaySize);
       const detections = await faceapi.detectAllFaces(video.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-      const resizedDimensions = faceapi.resizeResults(detections, displaySize);
-      canvas.current.getContext('2d').clearRect(0, 0, width, height);
-      
-      faceapi.draw.drawDetections(canvas.current, resizedDimensions);
-      faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
-      faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions); 
       console.log(detections);
       if (detections.length > 0) {
         clearInterval(id);
@@ -111,7 +105,7 @@ const Video = ({ moodHandler }) => {
       <div className='display-flex justify-content-center'>
       <flex className="camera">
       <video className="video" ref={video} autoPlay muted height={height} width={width} onPlay={handleVideoOnPlay}/>
-      <canvas ref={canvas} className="position-absolute photo"/>
+      <canvas ref={canvas} className="hidden"/>
       </flex>
       </div>
     </div>
