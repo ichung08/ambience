@@ -4,12 +4,13 @@ import '../Styles/video.css';
 
 const Video = () => {
 
-  // video dimensions
+  // dimensions
   const height = 480;
-  const width= 640;
+  const width = 640;
 
   // hooks
   const [initializing, setInitializing] = useState(false);
+  const [photo, setPhoto] = useState(false);
   const video = useRef();
   const canvas = useRef();
 
@@ -37,6 +38,7 @@ const Video = () => {
   }
 
   // once video starts, run api periodically for face and expression recognition
+  /*
   const handleVideoOnPlay = () => {
     setInterval(async () => {
       if (initializing) {
@@ -54,16 +56,48 @@ const Video = () => {
       faceapi.draw.drawDetections(canvas.current, resizedDimensions);
       faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
       faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions);
-      console.log(detections);
-    }, 100)
+    }, 5000)
+  } */
+  
+  const handleVideoOnPlay = async () => {
+      const id = setInterval(() => {
+        if (initializing) {
+            setInitializing(false);
+        }
+        clearInterval(id);
+      }, 1000)
+  } 
+
+  const takePhoto = async () => {
+      
+    const displaySize = {
+        width: width,
+        height: height
+    }
+    faceapi.matchDimensions(canvas.current, displaySize);
+    canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
+    canvas.current.getContext('2d').drawImage(video.current, 0, 0, width, height); 
+    setPhoto(true);
   }
+
+  const checkPhoto = async () => {
+      if (photo) {
+    const detections = await faceapi.detectSingleFace(canvas.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+    console.log(detections);
+      }
+  }
+
+  checkPhoto();
 
   return (
     <div>
       <span>{initializing ? 'Initializing' : 'Ready'}</span>
-      <div className="display-flex justify-content-center">
-      <video ref={video} autoPlay muted height={height} width={width} onPlay={handleVideoOnPlay}/>
-      <canvas ref={canvas} className="position-absolute" />
+      <div className='display-flex justify-content-center'>
+      <flex className="camera">
+      <video className="video" ref={video} autoPlay muted height={height} width={width} onPlay={handleVideoOnPlay}/>
+      <canvas ref={canvas} className="position-absolute photo"/>
+      </flex>
+      <button onClick={takePhoto} className="photo_button">Take photo</button>
       </div>
     </div>
   );
