@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import Video from "./Components/Video";
 import Playlist from "./Components/Playlist";
-import Video from "./Components/Video";
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
