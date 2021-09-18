@@ -3,10 +3,14 @@ import * as faceapi from "face-api.js";
 import "../Styles/video.css";
 import "../Styles/index.css";
 
+<<<<<<< HEAD
 const Video = ({ mood, moodHandler }) => {
 	// dimensions
 	const height = 480;
 	const width = 640;
+=======
+const Video = ({ moodHandler }) => {
+>>>>>>> 3ee4e4e5d054edea637151edb74085b4b3a7f179
 
 	// hooks
 	const [initializing, setInitializing] = useState(false);
@@ -67,6 +71,44 @@ const Video = ({ mood, moodHandler }) => {
 		}, 5000);
 	};
 	/*
+  const findHighest = (expressions) => {
+    var max = Number.MIN_SAFE_INTEGER;
+    var expression;
+    for (var key of Object.keys(expressions)) {
+      if (expressions[key] > max) {
+        max = expressions[key];
+        expression = key;
+      }
+    }
+    return expression;
+  }
+
+  // once video starts, run api periodically for face and expression recognition
+  const handleVideoOnPlay = () => {
+    const id = setInterval(async () => { 
+      setInitializing(true);
+      canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
+      const displaySize = {
+        width: width,
+        height: height
+      }
+      faceapi.matchDimensions(canvas.current, displaySize);
+      const detections = await faceapi.detectAllFaces(video.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+      const resizedDimensions = faceapi.resizeResults(detections, displaySize);
+      canvas.current.getContext('2d').clearRect(0, 0, width, height);
+      
+      faceapi.draw.drawDetections(canvas.current, resizedDimensions);
+      faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
+      faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions); 
+      console.log(detections);
+      if (detections.length > 0) {
+        clearInterval(id);
+        console.log(findHighest(detections[0].expressions));
+        moodHandler(findHighest(detections[0].expressions));
+      }
+    }, 5000)
+  } 
+  /*
   const handleVideoOnPlay = async () => {
       const id = setInterval(() => {
         if (initializing) {
