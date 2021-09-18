@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
+import { useTransition, animated } from "react-spring";
+
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
-
-import Video from "./Components/Video";
-import Playlist from "./Components/Playlist";
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -12,10 +11,17 @@ import Playlist from "./Components/Playlist";
 */
 
 function App() {
-	const [Mood, setMood] = useState(null);
-	const [receivedMood, setReceivedMood] = useState(true);
+	const [Mood, setMood] = useState("neutral");
 
-	return receivedMood ? <MoodPage Mood={Mood} /> : <FrontPage />;
+	const moodHandler = (mood) => {
+		setMood(mood);
+	};
+
+	return Mood ? (
+		<MoodPage mood={Mood} moodHandler={moodHandler} />
+	) : (
+		<FrontPage mood={Mood} moodHandler={moodHandler} />
+	);
 }
 
 export default App;
