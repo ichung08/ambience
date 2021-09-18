@@ -54,7 +54,7 @@ const Video = () => {
       faceapi.draw.drawDetections(canvas.current, resizedDimensions);
       faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
       faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions);
-      console.log(detections);
+      console.log(detections.expressions);
     }, 100)
   }
 
