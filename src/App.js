@@ -8,11 +8,11 @@ import Playlist from "./Components/Playlist";
 */
 
 function App() {
-  const [Init, setInit] = useState(false);
+  const [Init, setInit] = useState(false); //Default until app received a Mood
   const [Mood, setMood] = useState("neutral");
 
   return (
-    <div>
+    <div className="main-container">
       <header>
         <h1 className="header">Ambience</h1>
       </header>

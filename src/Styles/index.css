@@ -12,7 +12,10 @@ body {
   font-weight: 200;
 }
 
-code {
+.main-container {
+  display: grid;
+  place-content: center;
+  grid-template-rows: 1fr 5fr;
 }
 
 .header {
