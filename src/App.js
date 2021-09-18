@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useTransition, animated } from "react-spring";
 
-import Video from "./Components/Video";
-import Playlist from "./Components/Playlist";
+import FrontPage from "./Components/FrontPage";
+import MoodPage from "./Components/MoodPage";
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -10,38 +11,12 @@ import Playlist from "./Components/Playlist";
 
 function App() {
 	const [Mood, setMood] = useState(null);
-	const [transition, setTransition] = useState(true);
+	const [receivedMood, setReceivedMood] = useState(false);
 
-	//const animation = () => {};
-
-	useEffect(() => {
-		if (Mood != null) {
-			setTransition(true);
-		}
-
-		//Play transition
-	}, [Mood]);
+	useEffect(() => {}, [Mood]);
 
 	//Once a mood is received, we will return the playlist
-
-	if (!transition) {
-		return (
-			<div className="main-container-init">
-				<h1 className="init-header">Ambience</h1>
-				<p className="subtitle">
-					Take a selfie with your webcam below, and we'll replicate your vibes
-					&#128513;
-				</p>
-				<p className="video">Format video here</p>
-			</div>
-		);
-	}
-	return (
-		<div className="main-container-mood">
-			<h1 className="mood-header">Ambience</h1>
-			<p className="subtitle">You are {Mood}</p>
-		</div>
-	);
+	return receivedMood ? <MoodPage MountState={receivedMood} /> : <FrontPage />;
 }
 
 export default App;

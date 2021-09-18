@@ -22,7 +22,7 @@ body {
 	height: 100vh;
 }
 
-.init-header {
+.header-init {
 	grid-row: 2;
 	grid-column: 2;
 	font-family: "Playfair Display", serif;
@@ -46,6 +46,30 @@ body {
 }
 
 /*------Application with Mood------*/
+
+@-webkit-keyframes ShiftBackground {
+	0% {
+		background-position: 0% 57%;
+	}
+	50% {
+		background-position: 100% 44%;
+	}
+	100% {
+		background-position: 0% 57%;
+	}
+}
+
+@keyframes ShiftBackground {
+	0% {
+		background-position: 0% 57%;
+	}
+	50% {
+		background-position: 100% 44%;
+	}
+	100% {
+		background-position: 0% 57%;
+	}
+}
 
 .main-container-mood {
 	display: grid;
