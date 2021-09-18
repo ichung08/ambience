@@ -4,14 +4,6 @@ import "../Styles/index.css";
 
 import { useTransition, animated } from "@react-spring/core";
 
-<div className="main-container-init">
-	<h1 className="header-init">ambience</h1>
-	<p className="subtitle">
-		Take a selfie using your webcam below, and we'll match your mood with a song
-		&#128513;
-	</p>
-</div>;
-
 function FrontPage({ mood, moodHandler }) {
 	/*
 	const [visible, setVisible] = useState(false);
@@ -33,7 +25,7 @@ function FrontPage({ mood, moodHandler }) {
 					Take a selfie using your webcam below, and we'll match your mood with
 					a song &#128513;
 				</p>
-				<Video mood={mood} moodHandler={moodHandler} />
+				<Video moodHandler={moodHandler} />
 			</div>
 		</div>
 	);
