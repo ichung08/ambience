@@ -1,17 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	Redirect,
-} from "react-router-dom";
-
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
 import JournalPage from "./Components/Journal/JournalPage";
 import Header from "./Components/Header";
+import Route from './Components/Route';
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -19,7 +12,7 @@ import Header from "./Components/Header";
 */
 
 function App() {
-	const [Mood, setMood] = useState("neutral");
+	const [Mood, setMood] = useState(null);
 
 	const moodHandler = (mood) => {
 		setMood(mood);
@@ -27,27 +20,17 @@ function App() {
 
 	return (
 		<>
-			<Router>
 				<div className="main-container">
-					<Header moodHandler={setMood} />
+					<Header />
 
-					<Switch>
 						<Route path="/">
-							<FrontPage moodHandler={moodHandler} />
+							{Mood ? <MoodPage mood={Mood} moodHandler={moodHandler} /> : <FrontPage moodHandler={moodHandler} /> }
 						</Route>
 
-						<Route path="/moodpage">
-							<MoodPage moodHandler={moodHandler} />
+						<Route path="/journalpage">
+						<JournalPage mood={Mood} />
 						</Route>
-
-						<Route
-							exact
-							path="/journalpage"
-							render={() => <JournalPage mood={Mood} />}
-						/>
-					</Switch>
 				</div>
-			</Router>
 		</>
 	);
 }

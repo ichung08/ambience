@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 import { useSpring, animated, config } from "react-spring";
 
-import { Link } from "react-router-dom";
+import Link from "./Link";
 import "../Styles/index.css";
 
-function Header({ moodHandler }) {
+function Header() {
 	const styles = useSpring({
 		loop: true,
 		to: [
@@ -22,19 +22,17 @@ function Header({ moodHandler }) {
 		config: config.molasses,
 	});
 
-	const resetMood = () => {
-		moodHandler(null);
-	};
-
 	return (
 		<>
 			<div className="journal-btn">
-				<Link to="/journalpage">Journal</Link>
+				<Link href="/journalpage">Journal</Link>
 			</div>
 			<header className="header">
+			<Link href="/">
 				<animated.div style={styles}>
 					<h1>ambience</h1>
 				</animated.div>
+			</Link>
 			</header>
 		</>
 	);
