@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-
-import { useTransition, animated } from "react-spring";
+import React, { useEffect, useState } from "react";
 
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
+
+import Header from "./Components/Header";
 /*
   Song component -> possible spotify embed for fixed playlists
   Playlist -> Takes in mood and returns associated playlist
@@ -11,17 +11,28 @@ import FrontPage from "./Components/FrontPage";
 */
 
 function App() {
-  const [Mood, setMood] = useState(null);
+	const [Mood, setMood] = useState(null);
 
-  const moodHandler = (mood) => {
-    setMood(mood);
-  };
+	const moodHandler = (mood) => {
+		setMood(mood);
+	};
 
-  return Mood ? (
-    <MoodPage mood={Mood} moodHandler={moodHandler} />
-  ) : (
-    <FrontPage mood={Mood} moodHandler={moodHandler} />
-  );
+	const setPage = () => {
+		return Mood === null ? (
+			<FrontPage moodHandler={moodHandler} />
+		) : (
+			<MoodPage mood={Mood} moodHandler={moodHandler} />
+		);
+	};
+
+	return (
+		<div>
+			<div className="main-container">
+				<Header moodHandler={setMood} />
+				{setPage()}
+			</div>
+		</div>
+	);
 }
 
 export default App;

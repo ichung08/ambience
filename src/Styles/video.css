@@ -9,8 +9,6 @@
   
 
 .camera {
-    padding-top: 2em;
-    padding-bottom: 2em;
     margin: 0 auto;
     flex-direction: row;
     align-items: center;
@@ -19,9 +17,4 @@
 
 .hidden {
     display: none;
-}
-
-.photo_button {
-    width: 10em;
-    align-self: center;
 }
