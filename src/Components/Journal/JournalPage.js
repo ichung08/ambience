@@ -16,7 +16,7 @@ import Journal from "./Journal";
 const JournalPage = ({ mood }) => {
 	const [journalHistory, setJournalHistory] = useState();
 	const [loading, setLoading] = useState(true);
-	const [term, setTerm] = useState("");
+	
 
 	const fetchJournal = async () => {
 		const docRef = doc(db, "journal", "ZUhGVK39tj8yGfDhR7Jj");
@@ -33,39 +33,9 @@ const JournalPage = ({ mood }) => {
 		fetchJournal();
 	}, []);
 
-	const saveEntry = async (event) => {
-		event.preventDefault();
-		const d = new Date();
-		const data = {
-			mood: mood,
-			timestamp: Timestamp.fromDate(d),
-			body: term,
-		};
-
-		try {
-			const docRef = await updateDoc(
-				doc(db, "journal", "ZUhGVK39tj8yGfDhR7Jj"),
-				{ entries: arrayUnion(data) }
-			);
-			console.log("journal saved with ID: " + docRef.id);
-		} catch (e) {
-			console.error("error adding document: " + e);
-		}
-	};
-
 	return (
 		<>
-			<p className="subtitle">Journal your current thoughts! &#128522;</p>
-			<div className="journal-page">
-				<form className="journal-input" onSubmit={saveEntry}>
-					<input
-						type="text"
-						value={term}
-						onChange={(e) => setTerm(e.target.value)}
-						placeholder="How are you feeling?"
-					></input>
-					<input type="submit"></input>
-				</form>
+			<div className="journal-page">	
 				{loading ? (
 					"loading"
 				) : (
