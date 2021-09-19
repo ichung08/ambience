@@ -20,17 +20,13 @@ function App() {
 
 	return (
 		<>
-				<div className="main-container">
-					<Header />
-
 						<Route path="/">
-							{Mood ? <MoodPage mood={Mood} moodHandler={moodHandler} /> : <FrontPage moodHandler={moodHandler} /> }
+							{Mood ? <MoodPage mood={Mood} moodHandler={moodHandler} /> : <FrontPage moodHandler={moodHandler} />}
 						</Route>
 
 						<Route path="/journalpage">
 						<JournalPage mood={Mood} />
 						</Route>
-				</div>
 		</>
 	);
 }

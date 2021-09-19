@@ -10,6 +10,7 @@
     "face-api.js": "^0.22.2",
     "firebase": "^9.0.2",
     "react": "^17.0.2",
+    "react-audio-spectrum": "^0.1.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.3.0",

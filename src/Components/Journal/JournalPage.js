@@ -8,6 +8,7 @@ import {
 	Timestamp,
 } from "firebase/firestore";
 import { db } from "../../backend/config";
+import Header from "../Header";
 
 import "../../Styles/journal.css";
 
@@ -35,7 +36,8 @@ const JournalPage = ({ mood }) => {
 
 	return (
 		<>
-			<div className="journal-page">	
+			<div className="main-container journal-page">
+				<Header />	
 				{loading ? (
 					"loading"
 				) : (

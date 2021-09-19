@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-	collection,
 	doc,
 	updateDoc,
-	getDoc,
 	arrayUnion,
 	Timestamp,
 } from "firebase/firestore";

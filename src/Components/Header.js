@@ -1,4 +1,5 @@
 import React from "react";
+import { RiQuillPenFill } from "react-icons/ri"; 
 import { useSpring, animated, config } from "react-spring";
 
 import Link from "./Link";
@@ -24,13 +25,11 @@ function Header() {
 	return (
 		<>
 			<div className="journal-btn">
-				<Link href="/journalpage">Journal</Link>
+				<Link href="/journalpage"><RiQuillPenFill color="white" size="3em"/></Link>
 			</div>
 			<header className="header">
 			<Link href="/">
-				<animated.div style={styles}>
-					<h1>ambience</h1>
-				</animated.div>
+				<h1 style={{color: "white"}}>ambience</h1>
 			</Link>
 			</header>
 		</>

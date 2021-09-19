@@ -11,6 +11,11 @@ p {
 	font-size: 18px;
 }
 
+body {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+  }
+
 /*------App initialization------*/
 
 .main-container {
@@ -29,8 +34,12 @@ p {
   font-weight: 600;
   font-style: italic;
   font-size: 3rem;
-  color: var(--active-color);
+  color: white;
 }
+
+.front-page, .journal-page {
+	background: radial-gradient(circle, rgba(0,115,255,0.438165779006916) 0%, rgba(20,128,255,0.4029762417662377) 25%, rgba(40,141,255,0.3637605554917279) 49%, rgba(64,113,255,0.3189426283208596) 74%, rgba(79,138,255,0.2993347851836047) 100%);
+} 
 
 .reset-btn {
   grid-row: 2;
@@ -41,7 +50,7 @@ p {
   padding: 10px;
   box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
   font-family: "Open Sans", sans-serif;
-  color: black;
+  color: white;
   font-size: 1.5rem;
   font-weight: 600;
   font-style: italic;
@@ -86,11 +95,13 @@ p {
 	font-family: "Open Sans", sans-serif;
 	font-size: 1.5rem;
 	font-weight: 600;
+	color: white;
 	/* margin-top: 20px; */
 }
 
 .subtitle-mood {
 	font-weight: 700;
+	color: white;
 }
 
 .entry {
@@ -100,6 +111,8 @@ p {
 	grid-column: 3;
 	grid-row: 1;
 	place-self: center;
+	margin-top: 1.5em;
+
 }
 
 .video {

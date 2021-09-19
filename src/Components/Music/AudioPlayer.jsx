@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef} from 'react'
 import AudioControls from './AudioControls'
 import "./../../Styles/audioplayer.css"
 import Backdrop from './Backdrop'
+import AudioSpectrum from 'react-audio-spectrum';
 
 const AudioPlayer = ({ tracks, mood }) => {
     // State
@@ -16,6 +17,16 @@ const AudioPlayer = ({ tracks, mood }) => {
     const audioRef = useRef(new Audio(audioSrc))
     const intervalRef = useRef()
     const isReady = useRef(false)
+    
+    
+    // audiovisualizer
+    audioRef.current.muted = true;
+    var audio = document.getElementById('audio');
+    if (audio) {
+        audio.currentTime = trackProgress;
+        audio.volume = 0.1;
+        audio.play();
+    }
     
     // Destructure for conciseness
     const { duration } = audioRef.current
@@ -131,7 +142,10 @@ const AudioPlayer = ({ tracks, mood }) => {
                     style={{ background: trackStyling}}
                 />
             </div>
+            {isPlaying ? <><audio src={audioSrc} id="audio"></audio>
+            <AudioSpectrum gap={4} height={75} width={320} meterWidth={16} meterColor={'white'} capHeight={0} audioId={'audio'}/></> : null}
             <Backdrop trackIndex={trackIndex} activeColor={color} isPlaying={isPlaying} /> 
+            
         </div>
     )
 }
