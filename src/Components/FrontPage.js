@@ -1,7 +1,6 @@
 import React from "react";
 import Video from "./Video";
 import "../Styles/index.css";
-import { useTransition, animated } from "@react-spring/core";
 
 function FrontPage({ moodHandler }) {
   /*
