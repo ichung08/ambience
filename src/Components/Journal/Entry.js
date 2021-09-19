@@ -30,6 +30,7 @@ const Entry = ({ mood }) => {
 		} catch (e) {
 			console.error("error adding document: " + e);
 		}
+		setTerm("");
 	};
     return (
         <div className="journal-input">
