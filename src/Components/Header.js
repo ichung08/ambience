@@ -30,13 +30,5 @@ function Header({ moodHandler }) {
       </header>
     </>
   );
-  /*
-		<>
-			<header className="header" data-aos="fade-right" data-aos-duration="1200">
-				<h1>ambience</h1>
-			</header>
-		</>
-	);
-    */
 }
 export default Header;

@@ -204,7 +204,7 @@ input[type="range"]::-webkit-slider-thumb::after:hover {
 }
 
 .color-backdrop {
-  background: linear-gradient(0deg, var(--active-color) 20%, transparent 80%) no-repeat;
+  background: linear-gradient(0deg, var(--active-color) 20%, transparent 70%) no-repeat;
   position: absolute;
   top: 0;
   left: 0;
