@@ -131,7 +131,7 @@ const AudioPlayer = ({ tracks, mood }) => {
                     style={{ background: trackStyling}}
                 />
             </div>
-            <Backdrop trackIndex={trackIndex} activeColor={color} isPlaying={isPlaying} />
+            <Backdrop trackIndex={trackIndex} activeColor={color} isPlaying={isPlaying} /> 
         </div>
     )
 }
