@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { useSpring, animated, config } from "react-spring";
 
 import Link from "./Link";
