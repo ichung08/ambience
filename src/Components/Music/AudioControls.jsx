@@ -1,20 +1,20 @@
-import {IoPlayCircleOutline, IoPlayForward, IoPlayBack, IoPauseCircleOutline} from "react-icons/io5";
+import {IoPlayCircle, IoPlayForward, IoPlayBack, IoPauseCircle} from "react-icons/io5";
 const AudioControls = ({ isPlaying, onPlayPauseClick, onPrevClick, onNextClick }) => {
     return (
         <div className="audio-controls">
-            <button type="button" className="prev" aria-label="Previous" onClick={onPrevClick}>
-                <IoPlayBack />
+            <button type="button" aria-label="Previous" onClick={onPrevClick}>
+                <IoPlayBack className="prev"/>
             </button>
             {isPlaying ? 
-             (<button type="button" className="pause" aria-label="Pause" onClick={() => onPlayPauseClick(false)}>
-                <IoPauseCircleOutline />
+             (<button type="button" aria-label="Pause" onClick={() => onPlayPauseClick(false)}>
+                <IoPauseCircle className="pause" />
             </button>) : 
-             (<button type="button" className="play" aria-label="Play" onClick={() => onPlayPauseClick(true)}>
-                <IoPlayCircleOutline />
+             (<button type="button" aria-label="Play" onClick={() => onPlayPauseClick(true)}>
+                <IoPlayCircle className="play" />
             </button>)}
-            <button type="button" className="next" aria-label="Next" onClick={onNextClick}></button>
-            
-
+            <button type="button" aria-label="Next" onClick={onNextClick}>
+                <IoPlayForward className="next" />
+            </button>
         </div>
     )
 }
