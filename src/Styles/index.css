@@ -13,7 +13,12 @@ body {
 }
 
 p {
-  font-size: 10px;
+  font-size: 18px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 /*------App initialization------*/
@@ -37,15 +42,28 @@ p {
   color: white;
 }
 
+.front-page,
+.journal {
+  background: radial-gradient(
+    circle,
+    rgba(0, 115, 255, 0.438165779006916) 0%,
+    rgba(20, 128, 255, 0.4029762417662377) 25%,
+    rgba(40, 141, 255, 0.3637605554917279) 49%,
+    rgba(64, 113, 255, 0.3189426283208596) 74%,
+    rgba(79, 138, 255, 0.2993347851836047) 100%
+  );
+}
+
 .reset-btn {
   grid-row: 2;
   grid-column: 2;
+  margin-top: 3em;
   margin-bottom: 30px;
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
   font-family: "Open Sans", sans-serif;
-  color: black;
+  color: white;
   font-size: 1.5rem;
   font-weight: 600;
   font-style: italic;
@@ -77,7 +95,10 @@ p {
   opacity: 1;
 }
 
-.journal {
+.main-container > .journal-page {
+  width: 100%;
+  grid-row: 1/4;
+  grid-column: 1/4;
 }
 .subtitle {
   grid-row: 2;
@@ -87,11 +108,23 @@ p {
   font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
+  color: white;
   /* margin-top: 20px; */
 }
 
 .subtitle-mood {
   font-weight: 700;
+  color: white;
+}
+
+.entry {
+  margin-top: 1em;
+}
+.journal-btn {
+  grid-column: 3;
+  grid-row: 1;
+  place-self: center;
+  margin-top: 1.5em;
 }
 
 .video {
