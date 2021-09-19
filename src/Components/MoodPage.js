@@ -15,7 +15,7 @@ function MoodPage({ mood, moodHandler }) {
 		<div className="main-container">
 			<Header />
 			<p className="subtitle">
-				How I'm feeling: <span className="subtitle-mood">{mood}</span>
+				You're feeling: <span className="subtitle-mood">{mood}</span>
 				<div className="entry">
 				<Entry mood={mood}/>
 				</div>
