@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
@@ -11,28 +11,24 @@ import Header from "./Components/Header";
 */
 
 function App() {
-	const [Mood, setMood] = useState(null);
+  const [Mood, setMood] = useState(null);
 
-	const moodHandler = (mood) => {
-		setMood(mood);
-	};
+  const moodHandler = (mood) => {
+    setMood(mood);
+  };
 
-	const setPage = () => {
-		return Mood === null ? (
-			<FrontPage moodHandler={moodHandler} />
-		) : (
-			<MoodPage mood={Mood} moodHandler={moodHandler} />
-		);
-	};
+  const setPage = () => {
+    return Mood === null ? <FrontPage moodHandler={moodHandler} /> : <MoodPage mood={Mood} moodHandler={moodHandler} />;
+  };
 
-	return (
-		<div>
-			<div className="main-container">
-				<Header moodHandler={setMood} />
-				{setPage()}
-			</div>
-		</div>
-	);
+  return (
+    <div>
+      <div className="main-container">
+        <Header moodHandler={setMood} />
+        {setPage()}
+      </div>
+    </div>
+  );
 }
 
 export default App;
