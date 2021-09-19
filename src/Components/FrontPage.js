@@ -1,5 +1,6 @@
 import React from "react";
 import Video from "./Video";
+import Header from "./Header";
 import "../Styles/index.css";
 
 function FrontPage({ moodHandler }) {
@@ -13,11 +14,14 @@ function FrontPage({ moodHandler }) {
 */
 	return (
 		<>
+		<div className="main-container front-page">
+			<Header />
 			<p className="subtitle">
 				Take a selfie using your webcam below, and we'll match your mood with a
 				song &#128513;
 			</p>
 			<Video moodHandler={moodHandler} className="video" />
+		</div>
 		</>
 	);
 }

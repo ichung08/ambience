@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
@@ -12,25 +12,21 @@ import Route from './Components/Route';
 */
 
 function App() {
-	const [Mood, setMood] = useState(null);
+  const [Mood, setMood] = useState(null);
 
-	const moodHandler = (mood) => {
-		setMood(mood);
-	};
+  const moodHandler = (mood) => {
+    setMood(mood);
+  };
 
 	return (
 		<>
-				<div className="main-container">
-					<Header />
-
 						<Route path="/">
-							{Mood ? <MoodPage mood={Mood} moodHandler={moodHandler} /> : <FrontPage moodHandler={moodHandler} /> }
+							{Mood ? <MoodPage mood={Mood} moodHandler={moodHandler} /> : <FrontPage moodHandler={moodHandler} />}
 						</Route>
 
 						<Route path="/journalpage">
 						<JournalPage mood={Mood} />
 						</Route>
-				</div>
 		</>
 	);
 }

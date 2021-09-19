@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../backend/config";
+import Header from "../Header";
 
 import "../../Styles/journal.css";
 
@@ -33,7 +34,8 @@ const JournalPage = ({ mood }) => {
 	}, []);
 
 	return (
-		<>
+		<div className="main-container journal">
+			<Header />
 			<p className="subtitle">Your emotional history &#128522;</p>
 			<div className="journal-page">
 				{loading ? (
@@ -46,7 +48,7 @@ const JournalPage = ({ mood }) => {
 					</>
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 
