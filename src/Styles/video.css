@@ -9,19 +9,12 @@
   
 
 .camera {
-    padding-top: 2em;
-    padding-bottom: 2em;
     margin: 0 auto;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.photo {
-    padding-left: 4em;
-}
-
-.photo_button {
-    width: 10em;
-    align-self: center;
+.hidden {
+    display: none;
 }

@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useTransition, animated } from "@react-spring/core";
+import React from "react";
 import AudioPlayer from "./Music/AudioPlayer";
 import playlist from "./Music/Playlist";
+import Entry from "./Journal/Entry";
+import Journal from "./Journal/Journal";
 
-function MoodPage({ mood, moodHandler }) {
-  const resetMood = () => {
-    moodHandler(null);
-  };
-
+function MoodPage({ mood }) {
   return (
-    <div>
-      <div className="main-container-mood">
-        <h1 className="header-mood" data-aos="fade-right" data-aos-duration="1200">
-          ambience
-        </h1>
-        <p className="subtitle" data-aos="fade-in" data-aos-duration="600" data-aos-delay="1200">
-          We've detected that you are <h4>{mood}</h4>
-        </p>
-      </div>
+    <>
+      <p className="subtitle">
+        We've detected that you are <h4>{mood}</h4>
+      </p>
       <AudioPlayer tracks={playlist} mood={mood} />
-      <button onClick={() => resetMood()}>Reset Mood</button>
-    </div>
+    </>
   );
 }
 
