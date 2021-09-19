@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useSpring, animated, config } from "react-spring";
 
+import { Link } from "react-router-dom";
 import "../Styles/index.css";
 
 function Header({ moodHandler }) {
@@ -27,17 +28,14 @@ function Header({ moodHandler }) {
 
 	return (
 		<>
-			<button className="reset-btn" onClick={() => resetMood()}>
-				Reset Mood
-			</button>
+			<div className="journal-btn">
+				<Link to="/journalpage">Journal</Link>
+			</div>
 			<header className="header">
 				<animated.div style={styles}>
 					<h1>ambience</h1>
 				</animated.div>
 			</header>
-			<button className="journal-btn">
-				<p>Journal</p>
-			</button>
 		</>
 	);
 	/*

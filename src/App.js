@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 
+import {
+	BrowserRouter as Router,
+	Switch,
+	Route,
+	Link,
+	Redirect,
+} from "react-router-dom";
+
 import MoodPage from "./Components/MoodPage";
 import FrontPage from "./Components/FrontPage";
 import JournalPage from "./Components/Journal/JournalPage";
-
 import Header from "./Components/Header";
 /*
   Song component -> possible spotify embed for fixed playlists
@@ -18,32 +25,30 @@ function App() {
 		setMood(mood);
 	};
 
-	const setPage = () => {
-		/*
-		switch () {
-			case whichPage === "journal":
-				return <JournalPage mood={Mood} moodHandler={moodHandler} />;
-			case Mood == null:
-				return <MoodPage mood={Mood} moodHandler={moodHandler} />;
-			default:
-				return <FrontPage moodHandler={moodHandler} />;
-		}
-		*/
-
-		return Mood === null ? (
-			<FrontPage moodHandler={moodHandler} />
-		) : (
-			<MoodPage mood={Mood} moodHandler={moodHandler} />
-		);
-	};
-
 	return (
-		<div>
-			<div className="main-container">
-				<Header moodHandler={setMood} />
-				{setPage()}
-			</div>
-		</div>
+		<>
+			<Router>
+				<div className="main-container">
+					<Header moodHandler={setMood} />
+
+					<Switch>
+						<Route path="/">
+							<FrontPage moodHandler={moodHandler} />
+						</Route>
+
+						<Route path="/moodpage">
+							<MoodPage moodHandler={moodHandler} />
+						</Route>
+
+						<Route
+							exact
+							path="/journalpage"
+							render={() => <JournalPage mood={Mood} />}
+						/>
+					</Switch>
+				</div>
+			</Router>
+		</>
 	);
 }
 
