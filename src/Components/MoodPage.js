@@ -4,6 +4,8 @@ import { useTransition, animated } from "@react-spring/core";
 
 import Song from "./Music/Song";
 import Playlist from "./Music/Playlist";
+import Entry from "./Journal/Entry";
+import Journal from "./Journal/Journal";
 
 function MoodPage({ mood, moodHandler }) {
   const resetMood = () => {
@@ -22,6 +24,8 @@ function MoodPage({ mood, moodHandler }) {
       </div>
       <Playlist mood={mood} />
       <button onClick={() => resetMood()}>Reset Mood</button>
+      <Entry mood={mood}/>
+      <Journal />
     </div>
   );
 }

@@ -63,7 +63,6 @@ const Video = ({ moodHandler }) => {
       console.log(detections);
       if (detections.length > 0) {
         clearInterval(id);
-        console.log(findHighest(detections[0].expressions));
         moodHandler(findHighest(detections[0].expressions));
       }
     }, 5000)
