@@ -1,0 +1,118 @@
+:root {
+	--white: #fff;
+	--active-color: #00aeb0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.audio-player {
+	background: var(--active-color);
+	transition: background 0.4s ease;
+}
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.audio-player {
+	max-width: 350px;
+	border-radius: 20px;
+	padding: 24px;
+	box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
+	margin: auto;
+	color: var(--white);
+}
+
+.artwork {
+	border-radius: 120px;
+	display: block;
+	margin: auto;
+	height: 200px;
+	width: 200px;
+}
+
+.track-info {
+	text-align: center;
+	z-index: 1;
+	position: relative;
+}
+
+.title {
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.artist {
+	font-weight: 300;
+	margin-top: 0;
+}
+
+.audio-controls {
+	display: flex;
+	justify-content: space-between;
+	width: 75%;
+	margin: 0 auto 15px;
+}
+
+.prev,
+.next {
+	width: 35px;
+	height: 35px;
+}
+
+.play,
+.pause {
+	height: 40px;
+	width: 40px;
+}
+
+.audio-controls path {
+	fill: var(--white);
+}
+
+input[type="range"] {
+	height: 5px;
+	-webkit-appearance: none;
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	background: #3b7677;
+	transition: background 0.2s ease;
+	cursor: pointer;
+}
+
+.color-backdrop {
+	background: rgb(26, 132, 205);
+	background: linear-gradient(
+		0deg,
+		rgba(26, 132, 205, 1) 0%,
+		rgba(0, 212, 255, 1) 18%,
+		rgba(139, 255, 209, 1) 33%,
+		rgba(164, 255, 219, 1) 47%,
+		rgba(206, 255, 236, 1) 55%,
+		rgba(255, 255, 255, 1) 60%
+	);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+.color-backdrop.playing {
+	animation: colorChange 20s alternate infinite;
+}
+
+@keyframes colorChange {
+	from {
+		filter: hue-rotate(0deg);
+	}
+	to {
+		filter: hue-rotate(360deg);
+	}
+}

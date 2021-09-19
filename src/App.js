@@ -19,11 +19,21 @@ function App() {
 	};
 
 	const setPage = () => {
+		/*
+		switch () {
+			case whichPage === "journal":
+				return <JournalPage mood={Mood} moodHandler={moodHandler} />;
+			case Mood == null:
+				return <MoodPage mood={Mood} moodHandler={moodHandler} />;
+			default:
+				return <FrontPage moodHandler={moodHandler} />;
+		}
+		*/
+
 		return Mood === null ? (
 			<FrontPage moodHandler={moodHandler} />
 		) : (
-			//<MoodPage mood={Mood} moodHandler={moodHandler} />
-			<JournalPage />
+			<MoodPage mood={Mood} moodHandler={moodHandler} />
 		);
 	};
 

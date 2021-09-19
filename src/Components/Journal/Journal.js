@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../backend/config";
 
-const Journal = () => {
-	const [entries, setEntries] = useState(null);
-	const fetchEntries = async () => {
-		const query = await getDocs(collection(db, "journal"));
-		setEntries(query.docs);
-	};
-
-	useEffect(() => {
-		fetchEntries();
-	}, []);
-
+const Journal = ({ entry }) => {
 	return (
-		<div>
-			{entries &&
-				entries.map((entry) => {
-					return <div key={entry.id}>entry</div>;
-				})}
+		<div className="journal-entry">
+			<p>
+				You were {entry.mood}, and you wrote "{entry.body}"
+			</p>
 		</div>
 	);
 };

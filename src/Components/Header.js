@@ -35,6 +35,9 @@ function Header({ moodHandler }) {
 					<h1>ambience</h1>
 				</animated.div>
 			</header>
+			<button className="journal-btn">
+				<p>Journal</p>
+			</button>
 		</>
 	);
 	/*

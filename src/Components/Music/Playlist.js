@@ -1,112 +1,127 @@
-import React, { useState } from "react";
-import { useTransition, animated } from "react-spring";
+import stay from "./../../assets/laroi-stay.mp3";
+import watermelonSugar from "./../../assets/harry-styles-watermelon-sugar.mp3";
+import stayCover from "./../../assets/laroi-stay-cover.png";
+import watermelonCover from "./../../assets/watermelon-cover.jpg";
 
-import Song from "./Song";
-//Maps songs from playlist, or embeds a spotify playlist
+const playlist = {
+  happy: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-function Playlist({ mood }) {
-	const [showSongs, setShowSongs] = useState(true);
-	const transitions = useTransition(showSongs, {
-		from: { opacity: 0 },
-		enter: { opacity: 1 },
-		leave: { opacity: 0 },
-		delay: 200,
-	});
+  neutral: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-	const playlists = {
-		happy: [
-			{
-				artist: "Drake",
-				name: "Knife talk",
-				playtime: "4 minutes",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Wildest Dreams",
-				playtime: "3 minutes",
-			},
-		],
+  angry: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-		neutral: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
+  sad: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-		sad: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
+  surprised: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-		surprised: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
+  disgusted: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
 
-		disgusted: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
+  fearful: [
+    {
+      artist: "The Kid LAROI (feat. Justin Bieber)",
+      title: "Stay",
+      audioSrc: stay,
+      image: stayCover,
+      color: "#00aeb0",
+    },
+    {
+      artist: "Harry Styles",
+      title: "Watermelon Sugar",
+      audioSrc: watermelonSugar,
+      image: watermelonCover,
+      color: "#fd9f9a",
+    },
+  ],
+};
 
-		fearful: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
-
-		angry: [
-			{
-				artist: "Drake",
-				name: "Headlines",
-				playtime: "2 minutes 30 seconds",
-			},
-			{
-				artist: "Taylor Swift",
-				name: "Bomboclaat tings",
-				playtime: "3 minutes",
-			},
-		],
-	};
-
-	return <div className="playlist"></div>;
-}
-
-export default Playlist;
+export default playlist;

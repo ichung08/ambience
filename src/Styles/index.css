@@ -13,7 +13,7 @@ body {
 }
 
 p {
-	font-size: 10px;
+	font-size: 18px;
 }
 
 /*------App initialization------*/
@@ -33,7 +33,7 @@ p {
 	font-family: "Playfair Display", serif;
 	font-weight: 600;
 	font-style: italic;
-	font-size: 2rem;
+	font-size: 3.5rem;
 }
 
 .reset-btn {
@@ -41,12 +41,21 @@ p {
 	grid-column: 1;
 }
 
-.journal {
+.main-container > .journal-page {
+	width: 100%;
+	grid-row: 1/4;
+	grid-column: 1/4;
 }
 .subtitle {
 	grid-row: 2;
 	grid-column: 2;
 	text-align: center;
+}
+
+.journal-btn {
+	grid-column: 3;
+	grid-row: 1;
+	place-self: center;
 }
 
 .video {

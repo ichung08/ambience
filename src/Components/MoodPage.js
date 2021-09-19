@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-import { useTransition, animated } from "@react-spring/core";
+import playlist from "./Music/Playlist";
+import AudioPlayer from "./Music/AudioPlayer";
 
 function MoodPage({ mood }) {
 	return (
@@ -8,6 +9,7 @@ function MoodPage({ mood }) {
 			<p className="subtitle">
 				We've detected that you are <h4>{mood}</h4>
 			</p>
+			<AudioPlayer tracks={playlist} mood={mood} />
 		</>
 	);
 }
