@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef} from 'react'
 import AudioControls from './AudioControls'
 import "./../../Styles/audioplayer.css"
 import Backdrop from './Backdrop'
+import AudioSpectrum from 'react-audio-spectrum';
+import Wave from "@foobar404/wave";
 
 const AudioPlayer = ({ tracks, mood }) => {
     // State
@@ -27,7 +29,7 @@ const AudioPlayer = ({ tracks, mood }) => {
     const trackStyling = `
         -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))
     `;
-    
+
     const startTimer = () => {
         // Clear any timers already running
         clearInterval(intervalRef.current)
@@ -106,7 +108,7 @@ const AudioPlayer = ({ tracks, mood }) => {
         }
     }, [trackIndex])
     
-    return (
+    return (       
         <div className="audio-player">
             <div className="track-info">
                 <img className="artwork" src={image} alt={`track artwork for ${title} by ${artist}`}/>

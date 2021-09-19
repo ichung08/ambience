@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../backend/config';
+import { doc, updateDoc, arrayUnion, Timestamp } from 'firebase/firestore';
+import { db, firebase } from '../../backend/config';
 
 const Entry = ({ mood }) => {
     const [term, setTerm] = useState('');
@@ -10,13 +10,13 @@ const Entry = ({ mood }) => {
         const d = new Date();
         const data = {
             mood: mood,
-            timestamp: d.getTime(),
+            timestamp: Timestamp.fromDate(d),
             body: term
         };
 
         try {
-            const docRef = await addDoc(collection(db, "journal"), data);
-            console.log("journal saved with ID: " + docRef.id);
+            const docRef = await updateDoc(doc(db, "journal", "ZUhGVK39tj8yGfDhR7Jj"), {entries: arrayUnion(data)});
+            console.log(docRef);
         } catch (e) {
             console.error("error adding document: " + e);
         }
