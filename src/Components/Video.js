@@ -35,34 +35,7 @@ const Video = ({ moodHandler }) => {
 			(err) => console.error(err)
 		);
 	};
-
-	// once video starts, run api periodically for face and expression recognition
-	const handleVideoOnPlay = () => {
-		const id = setInterval(async () => {
-			canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
-			const displaySize = {
-				width: width,
-				height: height,
-			};
-			faceapi.matchDimensions(canvas.current, displaySize);
-			const detections = await faceapi
-				.detectAllFaces(video.current, new faceapi.TinyFaceDetectorOptions())
-				.withFaceLandmarks()
-				.withFaceExpressions();
-			const resizedDimensions = faceapi.resizeResults(detections, displaySize);
-			canvas.current.getContext("2d").clearRect(0, 0, width, height);
-
-			faceapi.draw.drawDetections(canvas.current, resizedDimensions);
-			faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
-			faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions);
-			console.log(detections);
-			if (detections.length > 0) {
-				clearInterval(id);
-				moodHandler(detections);
-			}
-		}, 5000);
-	};
-	/*
+	
   const findHighest = (expressions) => {
     var max = Number.MIN_SAFE_INTEGER;
     var expression;
@@ -78,7 +51,6 @@ const Video = ({ moodHandler }) => {
   // once video starts, run api periodically for face and expression recognition
   const handleVideoOnPlay = () => {
     const id = setInterval(async () => { 
-      setInitializing(true);
       canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
       const displaySize = {
         width: width,
@@ -86,50 +58,13 @@ const Video = ({ moodHandler }) => {
       }
       faceapi.matchDimensions(canvas.current, displaySize);
       const detections = await faceapi.detectAllFaces(video.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-      const resizedDimensions = faceapi.resizeResults(detections, displaySize);
-      canvas.current.getContext('2d').clearRect(0, 0, width, height);
-      
-      faceapi.draw.drawDetections(canvas.current, resizedDimensions);
-      faceapi.draw.drawFaceLandmarks(canvas.current, resizedDimensions);
-      faceapi.draw.drawFaceExpressions(canvas.current, resizedDimensions); 
       console.log(detections);
       if (detections.length > 0) {
         clearInterval(id);
-        console.log(findHighest(detections[0].expressions));
         moodHandler(findHighest(detections[0].expressions));
       }
     }, 5000)
   } 
-  /*
-  const handleVideoOnPlay = async () => {
-      const id = setInterval(() => {
-        if (initializing) {
-            setInitializing(false);
-        }
-        clearInterval(id);
-      }, 1000)
-  } 
-
-  const takePhoto = async () => {
-      
-    const displaySize = {
-        width: width,
-        height: height
-    }
-    faceapi.matchDimensions(canvas.current, displaySize);
-    canvas.current.innerHTML = faceapi.createCanvasFromMedia(video.current);
-    canvas.current.getContext('2d').drawImage(video.current, 0, 0, width, height); 
-    setPhoto(true);
-  } 
-
-  const checkPhoto = async () => {
-      if (photo) {
-    const detections = await faceapi.detectSingleFace(canvas.current, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-    console.log(detections);
-      }
-  }
-
-  checkPhoto(); */
 
 	return (
 		<div className="video">
@@ -143,8 +78,7 @@ const Video = ({ moodHandler }) => {
 			/>
 			<canvas
 				ref={canvas}
-				style={{ display: "none" }}
-				className="position-absolute photo"
+				className="hidden"
 			/>
 		</div>
 	);

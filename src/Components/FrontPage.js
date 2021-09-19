@@ -3,7 +3,7 @@ import Video from "./Video";
 import "../Styles/index.css";
 import { useTransition, animated } from "@react-spring/core";
 
-function FrontPage({ mood, moodHandler }) {
+function FrontPage({ moodHandler }) {
 	/*
 	const [visible, setVisible] = useState(false);
 	const transition = useTransition(visible, {
@@ -18,7 +18,7 @@ function FrontPage({ mood, moodHandler }) {
 				Take a selfie using your webcam below, and we'll match your mood with a
 				song &#128513;
 			</p>
-			<Video />
+			<Video moodHandler={moodHandler} className="video"/>
 		</>
 	);
 }

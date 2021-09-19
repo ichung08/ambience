@@ -11,7 +11,7 @@ import Header from "./Components/Header";
 */
 
 function App() {
-	const [Mood, setMood] = useState("neutral");
+	const [Mood, setMood] = useState(null);
 
 	const moodHandler = (mood) => {
 		setMood(mood);
@@ -19,7 +19,7 @@ function App() {
 
 	const setPage = () => {
 		return Mood === null ? (
-			<FrontPage mood={Mood} moodHandler={moodHandler} />
+			<FrontPage moodHandler={moodHandler} />
 		) : (
 			<MoodPage mood={Mood} moodHandler={moodHandler} />
 		);
