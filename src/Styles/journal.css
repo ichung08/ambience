@@ -1,0 +1,9 @@
+.journal-page {
+	display: grid;
+	text-align: center;
+	grid-row: auto;
+}
+
+.journal-entry {
+	max-height: 100px;
+}
