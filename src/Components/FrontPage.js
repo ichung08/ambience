@@ -17,8 +17,7 @@ function FrontPage({ moodHandler }) {
 		<div className="main-container front-page">
 			<Header />
 			<p className="subtitle">
-				Take a selfie using your webcam below, and we'll match your mood with a
-				song &#128513;
+				How are you feeling?
 			</p>
 			<Video moodHandler={moodHandler} className="video" />
 		</div>

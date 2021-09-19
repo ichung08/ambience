@@ -205,7 +205,14 @@ input[type="range"]::-webkit-slider-thumb::after:hover {
 }
 
 .color-backdrop {
-  background: linear-gradient(0deg, var(--active-color) 30%, transparent 70%) no-repeat;
+  background: radial-gradient(
+    circle,
+    rgba(0, 115, 255, 0.438165779006916) 0%,
+    rgba(20, 128, 255, 0.4029762417662377) 25%,
+    rgba(40, 141, 255, 0.3637605554917279) 49%,
+    rgba(64, 113, 255, 0.3189426283208596) 74%,
+    rgba(79, 138, 255, 0.2993347851836047) 100%
+  );
   position: absolute;
   top: 0;
   left: 0;
