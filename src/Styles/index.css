@@ -34,7 +34,7 @@ p {
   font-weight: 600;
   font-style: italic;
   font-size: 3rem;
-  color: var(--active-color);
+  color: white;
 }
 
 .reset-btn {
