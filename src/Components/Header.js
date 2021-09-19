@@ -6,6 +6,7 @@ import Link from "./Link";
 import "../Styles/index.css";
 
 function Header() {
+	/*
 	const styles = useSpring({
 		loop: true,
 		to: [
@@ -21,6 +22,7 @@ function Header() {
 		from: { x: 0, opacity: 1, color: "#000000" },
 		config: config.molasses,
 	});
+	*/
 
 	return (
 		<>
@@ -28,11 +30,7 @@ function Header() {
 				<Link href="/journalpage">Journal</Link>
 			</div>
 			<header className="header">
-			<Link href="/">
-				<animated.div style={styles}>
-					<h1>ambience</h1>
-				</animated.div>
-			</Link>
+				<h1>ambience</h1>
 			</header>
 		</>
 	);

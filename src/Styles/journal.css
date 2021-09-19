@@ -1,8 +1,10 @@
 .journal-page {
+	grid-row: 3;
+	grid-column: 2;
+	padding-top: 10em;
 	display: grid;
 	grid-template-columns: 3fr 3fr 3fr;
 	grid-template-rows: 100px repeat(auto, 25px);
-	place-items: center;
 }
 .journal-input {
 	padding-bottom: 10px;
@@ -10,10 +12,29 @@
 	grid-row: 1;
 	place-self: center;
 }
+.card-text {
+	display: flex;
+	justify-content: space-between;
+}
+
 .journal-entry {
-	padding: 10px;
-	border: 2px solid black;
-	border-radius: 5px;
+	width: 100%;
 	grid-column: 2;
-	place-self: center;
+	padding: 10px;
+	margin-bottom: 2vh;
+	background: rgb(0, 115, 255);
+	background: linear-gradient(
+		90deg,
+		rgba(0, 115, 255, 1) 0%,
+		rgba(0, 212, 255, 1) 100%
+	);
+	border-radius: 5px;
+	box-shadow: 0 5px 8px 0;
+	box-shadow: 3px 7px 4px #0000004b;
+	color: white;
+	transition: 0.4s ease;
+}
+
+.journal-entry:hover {
+	transform: scale(1.12);
 }
