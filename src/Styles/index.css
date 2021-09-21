@@ -2,159 +2,159 @@
 
 /* Style entire website */
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 p {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 body {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
 }
 
 /*------App initialization------*/
 
 .main-container {
-	display: grid;
-	place-items: center;
-	grid-template-rows: 3fr 1fr 8fr;
-	grid-template-columns: 2fr 3fr 2fr;
-	height: 100vh;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 3fr 1fr 8fr;
+  grid-template-columns: 2fr 3fr 2fr;
+  height: 100vh;
 }
 
 .header {
-	grid-row: 1;
-	grid-column: 2;
-	text-align: center;
-	font-family: "Playfair Display", serif;
-	font-weight: 600;
-	font-style: italic;
-	font-size: 3rem;
-	color: white;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 3rem;
+  color: white;
 }
 
 .front-page,
 .journal {
-	background: radial-gradient(
-		circle,
-		rgba(0, 115, 255, 0.438165779006916) 0%,
-		rgba(20, 128, 255, 0.4029762417662377) 25%,
-		rgba(40, 141, 255, 0.3637605554917279) 49%,
-		rgba(64, 113, 255, 0.3189426283208596) 74%,
-		rgba(79, 138, 255, 0.2993347851836047) 100%
-	);
+  background: radial-gradient(
+    circle,
+    rgba(0, 115, 255, 0.438165779006916) 0%,
+    rgba(20, 128, 255, 0.4029762417662377) 25%,
+    rgba(40, 141, 255, 0.3637605554917279) 49%,
+    rgba(64, 113, 255, 0.3189426283208596) 74%,
+    rgba(79, 138, 255, 0.2993347851836047) 100%
+  );
 }
 
 .reset-btn {
-	grid-row: 2;
-	grid-column: 2;
-	margin-top: 3em;
-	margin-bottom: 30px;
-	border-radius: 20px;
-	padding: 10px;
-	box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
-	font-family: "Open Sans", sans-serif;
-	color: white;
-	font-size: 1.5rem;
-	font-weight: 600;
-	font-style: italic;
-	transition: all 0.3s ease-in-out;
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 3em;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Create the hidden pseudo-element */
 /* include the shadow for the end state */
 .reset-btn::after {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	border-radius: 20px;
-	opacity: 0;
-	-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-	transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Scale up the box */
 .reset-btn:hover {
-	transform: scale(1.01, 1.01);
-	box-shadow: 0 10px 28px rgba(255, 255, 255, 0.9);
+  transform: scale(1.01, 1.01);
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.9);
 }
 
 /* Fade in the pseudo-element with the bigger shadow */
 .reset-btn:hover::after {
-	opacity: 1;
+  opacity: 1;
 }
 
 .main-container > .journal-page {
-	width: 100%;
-	grid-row: 1/4;
-	grid-column: 1/4;
+  width: 100%;
+  grid-row: 1/4;
+  grid-column: 1/4;
 }
 .subtitle {
-	grid-row: 2;
-	grid-column: 2;
-	text-align: center;
-	margin-bottom: 9rem;
-	font-family: "Open Sans", sans-serif;
-	font-size: 1.5rem;
-	font-weight: 600;
-	color: white;
-	/* margin-top: 20px; */
+  grid-row: 2;
+  grid-column: 2;
+  text-align: center;
+  margin-bottom: 9rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  /* margin-top: 20px; */
 }
 
 .subtitle-mood {
-	font-weight: 700;
-	color: white;
+  font-weight: 700;
+  color: white;
 }
 
 .entry {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 .journal-btn {
-	grid-column: 3;
-	grid-row: 1;
-	place-self: center;
-	margin-top: 1.5em;
+  grid-column: 3;
+  grid-row: 1;
+  place-self: center;
+  margin-top: 1.5em;
 }
 
 .video {
-	grid-row: 3;
-	grid-column: 2;
-	margin-bottom: 50px;
+  grid-row: 3;
+  grid-column: 2;
+  margin-bottom: 50px;
 }
 
 /*------Application with Mood------*/
 
 @-webkit-keyframes ShiftBackground {
-	0% {
-		background-position: 0% 57%;
-	}
-	50% {
-		background-position: 100% 44%;
-	}
-	100% {
-		background-position: 0% 57%;
-	}
+  0% {
+    background-position: 0% 57%;
+  }
+  50% {
+    background-position: 100% 44%;
+  }
+  100% {
+    background-position: 0% 57%;
+  }
 }
 
 @keyframes ShiftBackground {
-	0% {
-		background-position: 0% 57%;
-	}
-	50% {
-		background-position: 100% 44%;
-	}
-	100% {
-		background-position: 0% 57%;
-	}
+  0% {
+    background-position: 0% 57%;
+  }
+  50% {
+    background-position: 100% 44%;
+  }
+  100% {
+    background-position: 0% 57%;
+  }
 }

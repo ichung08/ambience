@@ -6,7 +6,7 @@ import Link from "./Link";
 import "../Styles/index.css";
 
 function Header() {
-	/*
+  /*
 	const styles = useSpring({
 		loop: true,
 		to: [
@@ -24,21 +24,21 @@ function Header() {
 	});
 	*/
 
-	return (
-		<>
-			<div className="journal-btn">
-				<Link href="/journalpage">
-					<RiQuillPenFill color="white" size="3em" />
-				</Link>
-			</div>
-			<header className="header">
-				<Link href="/">
-					<h1 style={{ color: "white" }}>ambience</h1>
-				</Link>
-			</header>
-		</>
-	);
-	/*
+  return (
+    <>
+      <div className="journal-btn">
+        <Link href="/journalpage">
+          <RiQuillPenFill color="white" size="3em" />
+        </Link>
+      </div>
+      <header className="header">
+        <Link href="/">
+          <h1 style={{ color: "white" }}>ambience</h1>
+        </Link>
+      </header>
+    </>
+  );
+  /*
 		<>
 			<header className="header" data-aos="fade-right" data-aos-duration="1200">
 				<h1>ambience</h1>
