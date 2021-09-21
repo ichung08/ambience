@@ -7,7 +7,9 @@ Our project is a music player and recommender based on a user’s facial emotion
 ## How to Run
 
 1. Clone this repo `git clone https://github.com/ichung08/ambience.git`
+
 2. Run `npm i` to install all necessary dependencies.
+
 3. Run `npm start` 
     - The application homepage can be found at `http://LOCAL IP:3000/`
     - Stop the application with CTRL+BREAK
